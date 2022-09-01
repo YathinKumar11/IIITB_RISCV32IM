@@ -1,0 +1,64 @@
+
+generated_multiple_elseif67/multiple_elseif67:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <program4>:
+   0:	fe010113          	addi	sp,sp,-32
+   4:	00812e23          	sw	s0,28(sp)
+   8:	02010413          	addi	s0,sp,32
+   c:	04300793          	li	a5,67
+  10:	fef42623          	sw	a5,-20(s0)
+  14:	fec42703          	lw	a4,-20(s0)
+  18:	05500793          	li	a5,85
+  1c:	00e7de63          	bge	a5,a4,38 <.L2>
+  20:	fec42703          	lw	a4,-20(s0)
+  24:	06400793          	li	a5,100
+  28:	00e7c863          	blt	a5,a4,38 <.L2>
+  2c:	00500793          	li	a5,5
+  30:	fef42423          	sw	a5,-24(s0)
+  34:	07c0006f          	j	b0 <.L1>
+
+00000038 <.L2>:
+  38:	fec42703          	lw	a4,-20(s0)
+  3c:	03c00793          	li	a5,60
+  40:	00e7de63          	bge	a5,a4,5c <.L4>
+  44:	fec42703          	lw	a4,-20(s0)
+  48:	05500793          	li	a5,85
+  4c:	00e7c863          	blt	a5,a4,5c <.L4>
+  50:	00400793          	li	a5,4
+  54:	fef42423          	sw	a5,-24(s0)
+  58:	0580006f          	j	b0 <.L1>
+
+0000005c <.L4>:
+  5c:	fec42703          	lw	a4,-20(s0)
+  60:	02800793          	li	a5,40
+  64:	00e7de63          	bge	a5,a4,80 <.L5>
+  68:	fec42703          	lw	a4,-20(s0)
+  6c:	03c00793          	li	a5,60
+  70:	00e7c863          	blt	a5,a4,80 <.L5>
+  74:	00300793          	li	a5,3
+  78:	fef42423          	sw	a5,-24(s0)
+  7c:	0340006f          	j	b0 <.L1>
+
+00000080 <.L5>:
+  80:	fec42703          	lw	a4,-20(s0)
+  84:	01e00793          	li	a5,30
+  88:	00e7de63          	bge	a5,a4,a4 <.L6>
+  8c:	fec42703          	lw	a4,-20(s0)
+  90:	02800793          	li	a5,40
+  94:	00e7c863          	blt	a5,a4,a4 <.L6>
+  98:	00200793          	li	a5,2
+  9c:	fef42423          	sw	a5,-24(s0)
+  a0:	0100006f          	j	b0 <.L1>
+
+000000a4 <.L6>:
+  a4:	00100793          	li	a5,1
+  a8:	fef42423          	sw	a5,-24(s0)
+  ac:	00000013          	nop
+
+000000b0 <.L1>:
+  b0:	01c12403          	lw	s0,28(sp)
+  b4:	02010113          	addi	sp,sp,32
+  b8:	00008067          	ret

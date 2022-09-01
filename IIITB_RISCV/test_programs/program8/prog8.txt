@@ -1,0 +1,47 @@
+
+generated_prog8/prog8:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <array>:
+   0:	fd010113          	addi	sp,sp,-48
+   4:	02812623          	sw	s0,44(sp)
+   8:	03010413          	addi	s0,sp,48
+   c:	fc042823          	sw	zero,-48(s0)
+  10:	00100793          	li	a5,1
+  14:	fcf42a23          	sw	a5,-44(s0)
+  18:	00200793          	li	a5,2
+  1c:	fcf42c23          	sw	a5,-40(s0)
+  20:	00300793          	li	a5,3
+  24:	fcf42e23          	sw	a5,-36(s0)
+  28:	00400793          	li	a5,4
+  2c:	fef42023          	sw	a5,-32(s0)
+  30:	00500793          	li	a5,5
+  34:	fef42223          	sw	a5,-28(s0)
+  38:	fe042623          	sw	zero,-20(s0)
+  3c:	fe042423          	sw	zero,-24(s0)
+  40:	0300006f          	j	70 <.L2>
+
+00000044 <.L3>:
+  44:	fe842783          	lw	a5,-24(s0)
+  48:	00279793          	slli	a5,a5,0x2
+  4c:	ff078793          	addi	a5,a5,-16
+  50:	008787b3          	add	a5,a5,s0
+  54:	fe07a783          	lw	a5,-32(a5)
+  58:	fec42703          	lw	a4,-20(s0)
+  5c:	00f707b3          	add	a5,a4,a5
+  60:	fef42623          	sw	a5,-20(s0)
+  64:	fe842783          	lw	a5,-24(s0)
+  68:	00178793          	addi	a5,a5,1
+  6c:	fef42423          	sw	a5,-24(s0)
+
+00000070 <.L2>:
+  70:	fe842703          	lw	a4,-24(s0)
+  74:	00500793          	li	a5,5
+  78:	fce7d6e3          	bge	a5,a4,44 <.L3>
+  7c:	00000013          	nop
+  80:	00000013          	nop
+  84:	02c12403          	lw	s0,44(sp)
+  88:	03010113          	addi	sp,sp,48
+  8c:	00008067          	ret

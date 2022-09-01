@@ -1,0 +1,64 @@
+
+generated_prog8a/prog8a:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <array>:
+   0:	fb010113          	addi	sp,sp,-80
+   4:	04812623          	sw	s0,76(sp)
+   8:	05010413          	addi	s0,sp,80
+   c:	fc042823          	sw	zero,-48(s0)
+  10:	00100793          	li	a5,1
+  14:	fcf42a23          	sw	a5,-44(s0)
+  18:	00200793          	li	a5,2
+  1c:	fcf42c23          	sw	a5,-40(s0)
+  20:	00300793          	li	a5,3
+  24:	fcf42e23          	sw	a5,-36(s0)
+  28:	00400793          	li	a5,4
+  2c:	fef42023          	sw	a5,-32(s0)
+  30:	00500793          	li	a5,5
+  34:	fef42223          	sw	a5,-28(s0)
+  38:	fa042c23          	sw	zero,-72(s0)
+  3c:	00200793          	li	a5,2
+  40:	faf42e23          	sw	a5,-68(s0)
+  44:	00400793          	li	a5,4
+  48:	fcf42023          	sw	a5,-64(s0)
+  4c:	00600793          	li	a5,6
+  50:	fcf42223          	sw	a5,-60(s0)
+  54:	00800793          	li	a5,8
+  58:	fcf42423          	sw	a5,-56(s0)
+  5c:	00a00793          	li	a5,10
+  60:	fcf42623          	sw	a5,-52(s0)
+  64:	fe042623          	sw	zero,-20(s0)
+  68:	fe042423          	sw	zero,-24(s0)
+  6c:	0480006f          	j	b4 <.L2>
+
+00000070 <.L3>:
+  70:	fe842783          	lw	a5,-24(s0)
+  74:	00279793          	slli	a5,a5,0x2
+  78:	ff078793          	addi	a5,a5,-16
+  7c:	008787b3          	add	a5,a5,s0
+  80:	fe07a703          	lw	a4,-32(a5)
+  84:	fe842783          	lw	a5,-24(s0)
+  88:	00279793          	slli	a5,a5,0x2
+  8c:	ff078793          	addi	a5,a5,-16
+  90:	008787b3          	add	a5,a5,s0
+  94:	fc87a783          	lw	a5,-56(a5)
+  98:	00f707b3          	add	a5,a4,a5
+  9c:	fec42703          	lw	a4,-20(s0)
+  a0:	00f707b3          	add	a5,a4,a5
+  a4:	fef42623          	sw	a5,-20(s0)
+  a8:	fe842783          	lw	a5,-24(s0)
+  ac:	00178793          	addi	a5,a5,1
+  b0:	fef42423          	sw	a5,-24(s0)
+
+000000b4 <.L2>:
+  b4:	fe842703          	lw	a4,-24(s0)
+  b8:	00500793          	li	a5,5
+  bc:	fae7dae3          	bge	a5,a4,70 <.L3>
+  c0:	00000013          	nop
+  c4:	00000013          	nop
+  c8:	04c12403          	lw	s0,76(sp)
+  cc:	05010113          	addi	sp,sp,80
+  d0:	00008067          	ret

@@ -1,0 +1,64 @@
+
+generated_program2_test1/program2_test1:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <program2>:
+   0:	fe010113          	addi	sp,sp,-32
+   4:	00812e23          	sw	s0,28(sp)
+   8:	02010413          	addi	s0,sp,32
+   c:	00200793          	li	a5,2 
+  10:	fef42623          	sw	a5,-20(s0)
+  14:	00300793          	li	a5,3
+  18:	fef42423          	sw	a5,-24(s0)
+  1c:	00a00793          	li	a5,10
+  20:	fef42223          	sw	a5,-28(s0)
+  24:	fe042023          	sw	zero,-32(s0)
+  28:	fec42703          	lw	a4,-20(s0)
+  2c:	fe842783          	lw	a5,-24(s0)
+  30:	00e7de63          	bge	a5,a4,4c <.L2>
+  34:	fec42703          	lw	a4,-20(s0)
+  38:	fe442783          	lw	a5,-28(s0)
+  3c:	00e7d863          	bge	a5,a4,4c <.L2>
+  40:	00100793          	li	a5,1
+  44:	fef42023          	sw	a5,-32(s0)
+  48:	0700006f          	j	b8 <.L1>
+
+0000004c <.L2>:
+  4c:	fe842703          	lw	a4,-24(s0)
+  50:	fec42783          	lw	a5,-20(s0)
+  54:	00e7de63          	bge	a5,a4,70 <.L4>
+  58:	fe842703          	lw	a4,-24(s0)
+  5c:	fe442783          	lw	a5,-28(s0)
+  60:	00e7d863          	bge	a5,a4,70 <.L4>
+  64:	00200793          	li	a5,2
+  68:	fef42023          	sw	a5,-32(s0)
+  6c:	04c0006f          	j	b8 <.L1>
+
+00000070 <.L4>:
+  70:	fe442703          	lw	a4,-28(s0)
+  74:	fec42783          	lw	a5,-20(s0)
+  78:	00e7de63          	bge	a5,a4,94 <.L5>
+  7c:	fe442703          	lw	a4,-28(s0)
+  80:	fe842783          	lw	a5,-24(s0)
+  84:	00e7d863          	bge	a5,a4,94 <.L5>
+  88:	00300793          	li	a5,3
+  8c:	fef42023          	sw	a5,-32(s0)
+  90:	0280006f          	j	b8 <.L1>
+
+00000094 <.L5>:
+  94:	fec42703          	lw	a4,-20(s0)
+  98:	fe842783          	lw	a5,-24(s0)
+  9c:	00f71e63          	bne	a4,a5,b8 <.L1>
+  a0:	fec42703          	lw	a4,-20(s0)
+  a4:	fe442783          	lw	a5,-28(s0)
+  a8:	00f71863          	bne	a4,a5,b8 <.L1>
+  ac:	00400793          	li	a5,4
+  b0:	fef42023          	sw	a5,-32(s0)
+  b4:	00000013          	nop
+
+000000b8 <.L1>:
+  b8:	01c12403          	lw	s0,28(sp)
+  bc:	02010113          	addi	sp,sp,32
+  c0:	00008067          	ret

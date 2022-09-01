@@ -1,0 +1,45 @@
+
+generated_prog7a/prog7a:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <nested_for>:
+   0:	fe010113          	addi	sp,sp,-32
+   4:	00812e23          	sw	s0,28(sp)
+   8:	02010413          	addi	s0,sp,32
+   c:	fe042623          	sw	zero,-20(s0)
+  10:	fe042423          	sw	zero,-24(s0)
+  14:	0480006f          	j	5c <.L2>
+
+00000018 <.L5>:
+  18:	fe042223          	sw	zero,-28(s0)
+  1c:	0280006f          	j	44 <.L3>
+
+00000020 <.L4>:
+  20:	fe842703          	lw	a4,-24(s0)
+  24:	fe442783          	lw	a5,-28(s0)
+  28:	00f707b3          	add	a5,a4,a5
+  2c:	fec42703          	lw	a4,-20(s0)
+  30:	00f707b3          	add	a5,a4,a5
+  34:	fef42623          	sw	a5,-20(s0)
+  38:	fe442783          	lw	a5,-28(s0)
+  3c:	00178793          	addi	a5,a5,1
+  40:	fef42223          	sw	a5,-28(s0)
+
+00000044 <.L3>:
+  44:	fe442703          	lw	a4,-28(s0)
+  48:	00900793          	li	a5,9
+  4c:	fce7dae3          	bge	a5,a4,20 <.L4>
+  50:	fe842783          	lw	a5,-24(s0)
+  54:	00178793          	addi	a5,a5,1
+  58:	fef42423          	sw	a5,-24(s0)
+
+0000005c <.L2>:
+  5c:	fe842703          	lw	a4,-24(s0)
+  60:	00900793          	li	a5,9
+  64:	fae7dae3          	bge	a5,a4,18 <.L5>
+  68:	00000013          	nop
+  6c:	01c12403          	lw	s0,28(sp)
+  70:	02010113          	addi	sp,sp,32
+  74:	00008067          	ret
