@@ -325,11 +325,15 @@ add_lefs -src $lefs
 ```
 ![Image](https://github.com/YathinKumar11/IIITB_RISCV32IM/blob/main/Images/openlane_flow.png)
 
+```
 #Synthesis
+
+
 ```
 %run_synthesis
 ```
 ##Synthesis Report
+
 ![Image](https://github.com/YathinKumar11/IIITB_RISCV32IM/blob/main/Images/stat_vsdinv.png)
 Setup and Hold slack after synthesis
 ![Image](slack)
