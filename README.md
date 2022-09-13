@@ -118,7 +118,7 @@ gtkwave test.vcd
 
 
 # Advanced Physical Design using OpenLane/Sky130 Workshop simulations and Results 
-## Theory
+<!-- ## Theory
 ### What is OpenLane
 OpenLane is an automated RTL to GDSII flow (it is not a tool but it uses many opensource tools at different stages). It uses Yosys,abc for synthesis and mapping; OpenSTA for timing analysis; Magic for showing layout and so on.. 
 You can refer to the [documentation](https://openlane.readthedocs.io/en/latest/flow_overview.html) for details
@@ -129,7 +129,7 @@ It is a scripting language that aims at providing the ability for applications t
 ### What is .lef file
 ### What is .def file
 ### What is .mag file
-### What is .tech file
+### What is .tech file -->
 
 ## Docker Installation
 ```
@@ -323,52 +323,49 @@ The following commands are to merge external the lef files to the merged.nom.lef
 set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
 add_lefs -src $lefs
 ```
-
-```
 ![Image](https://github.com/YathinKumar11/IIITB_RISCV32IM/blob/main/Images/openlane_flow.png)
-```
 
-#Synthesis
+# Synthesis
 
 
 ```
 %run_synthesis
 ```
-##Synthesis Report
+# Synthesis Report
 
 ![Image](https://github.com/YathinKumar11/IIITB_RISCV32IM/blob/main/Images/stat_vsdinv.png)
-Setup and Hold slack after synthesis
-![Image](slack)
+### Setup and Hold slack after synthesis
+![Image](https://github.com/YathinKumar11/IIITB_RISCV32IM/blob/main/Images/slack.png)
 
 The sky130_vsdin in the netlist after synthesis
 ![Image](https://github.com/YathinKumar11/IIITB_RISCV32IM/blob/main/Images/vsdinv_in_netlist.png)
 
-#Floorplan
+# Floorplan
 ```
 % run_floorplan
 ```
-##Die area
+## Die area
 ![Image](https://github.com/YathinKumar11/IIITB_RISCV32IM/blob/main/Images/die_area.png)
-##Core area
+## Core area
 ![Image](https://github.com/YathinKumar11/IIITB_RISCV32IM/blob/main/Images/core_area.png)
 Navigate to results->floorplan and type the Magic command in terminal to open the floorplan 
 ```
 $ magic -T /home/ubuntu/OpenLane/pdks/sky130A/libs.tech/magic/sky130A.tech read ../../tmp/merged.nom.lef def read top.def &
 ```
 Floorplan view - getting segmentation fault but the def file is created
-#Placement
+# Placement
 ```
 % run_placement
 ```
 We can see the vsdinv cell in our netlist after placement
 ![Image](https://github.com/YathinKumar11/IIITB_RISCV32IM/blob/main/Images/vsdinv_placement.png)
 
-#Clock tree synthesis
+# Clock tree synthesis
 This step creates a clock network over the layout to provide clock to different parts of the design. This step is done to avoid extra wire or other delays that causes delayed reach of clock.
 ```
 %run_cts
 ```
-#Routing
+# Routing
 ```
 % run_routing
 ```
