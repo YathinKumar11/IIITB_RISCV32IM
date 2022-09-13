@@ -118,6 +118,18 @@ gtkwave test.vcd
 
 
 # Advanced Physical Design using OpenLane/Sky130 Workshop simulations and Results 
+## Theory
+### What is OpenLane
+OpenLane is an automated RTL to GDSII flow (it is not a tool but it uses many opensource tools at different stages). It uses Yosys,abc for synthesis and mapping; OpenSTA for timing analysis; Magic for showing layout and so on.. 
+You can refer to the [documentation](https://openlane.readthedocs.io/en/latest/flow_overview.html) for details
+### What is Magic tool
+Magic is an open source electronic design automation (EDA) layout tool for VLSI designs. 
+### What is .tcl file
+It is a scripting language that aims at providing the ability for applications to communicate with each other. Tk is a cross platform widget toolkit used for building GUI 
+### What is .lef file
+### What is .def file
+### What is .mag file
+### What is .tech file
 
 ## Docker Installation
 ```
@@ -208,7 +220,6 @@ $ sudo apt-get install ngspice
 
 
 # Creating a Custom Inverter Cell
-
 Open Terminal in the folder you want to create the custom inverter cell and run the following commands:
 
 ```
@@ -217,9 +228,10 @@ $ cd vsdstdcelldesign
 $  cp ./libs/sky130A.tech sky130A.tech
 $ magic -T sky130A.tech sky130_inv.mag &
 ```
-![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/inverter.jpeg)
+![Image]()
 
-
+The last magic command shows the layout. -T flag describes the technology file and we give .mag file of the inverter.
+other flags and syntax can be explored 
 To extract Spice netlist, Type the following commands in tcl window.
 
 ```
@@ -228,14 +240,15 @@ To extract Spice netlist, Type the following commands in tcl window.
 % ext2spice
 ```
 "cthresh 0 rthresh 0" is used to extract parasitic capacitances from the cell.
-![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/cthresh_rthresh.jpeg)
+[ext2spice](http://opencircuitdesign.com/magic/commandref/ext2spice.html) command converts extracted files to .spice format 
+![Image](https://github.com/YathinKumar11/IIITB_RISCV32IM/blob/main/Images/ss4.png)
 
 
 Open the terminal in the directory where ngspice is stored and type the following command to open the ngspice console:
 ```
 $ ngspice sky130_inv.spice 
 ```
-![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/ngspice.jpeg)
+![Image](https://github.com/YathinKumar11/IIITB_RISCV32IM/blob/main/Images/ss2.png)
 
 
 Now plot the graphs for the designed inverter model using the following command:
@@ -289,30 +302,73 @@ Navigate to the openlane folder in terminal and give the following command :
 ```
 $ make mount (or use sudo as prefix)
 ```
-![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/layout1.jpeg)
-
-
-After entering the openlane container give the following command:
+After entering the openlane container give the following command: this command describes we will go through interactive flow where we run different steps separately
 ```
 $ ./flow.tcl -interactive
 ```
-![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/layout2.jpeg)
+If you want to execute the entire flow in one go we can use the following command
+```
+$ ./flow.tcl -design design_name
+```
 
 
-This command will take you into the tcl console. In the tcl console type the following commands:
+If we use the interactive flow it opens console. In the tcl console type the following commands:
 ```
 % package require openlane 0.9
 % prep -design iiitb_riscv32im5
 ```
-![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/layout3.jpeg)
-
-
 The following commands are to merge external the lef files to the merged.nom.lef. In our case sky130_vsdiat is getting merged to the lef file
 
 ```
 set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
 add_lefs -src $lefs
 ```
+![Image](https://github.com/YathinKumar11/IIITB_RISCV32IM/blob/main/Images/openlane_flow.png)
+
+#Synthesis
+```
+%run_synthesis
+```
+##Synthesis Report
+![Image](https://github.com/YathinKumar11/IIITB_RISCV32IM/blob/main/Images/stat_vsdinv.png)
+Setup and Hold slack after synthesis
+![Image](slack)
+
+The sky130_vsdin in the netlist after synthesis
+![Image](https://github.com/YathinKumar11/IIITB_RISCV32IM/blob/main/Images/vsdinv_in_netlist.png)
+
+#Floorplan
+```
+% run_floorplan
+```
+##Die area
+![Image](https://github.com/YathinKumar11/IIITB_RISCV32IM/blob/main/Images/die_area.png)
+##Core area
+![Image](https://github.com/YathinKumar11/IIITB_RISCV32IM/blob/main/Images/core_area.png)
+Navigate to results->floorplan and type the Magic command in terminal to open the floorplan 
+```
+$ magic -T /home/ubuntu/OpenLane/pdks/sky130A/libs.tech/magic/sky130A.tech read ../../tmp/merged.nom.lef def read top.def &
+```
+Floorplan view - getting segmentation fault but the def file is created
+#Placement
+```
+% run_placement
+```
+We can see the vsdinv cell in our netlist after placement
+![Image](https://github.com/YathinKumar11/IIITB_RISCV32IM/blob/main/Images/vsdinv_placement.png)
+
+#Clock tree synthesis
+This step creates a clock network over the layout to provide clock to different parts of the design. This step is done to avoid extra wire or other delays that causes delayed reach of clock.
+```
+%run_cts
+```
+#Routing
+```
+% run_routing
+```
+
+
+
 
 # Contibutors
 * Mayank Kabra, Student, IIIT Bangalore
