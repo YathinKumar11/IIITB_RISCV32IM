@@ -370,6 +370,24 @@ This step creates a clock network over the layout to provide clock to different 
 % run_routing
 ```
 
+Results - Post layout
+# Post Layout synthesis gate count
+
+# Area using box command
+
+# Performance 
+
+# Flop ratio
+
+# Power (internal, switching, leakage and total)
+- Internal Power = 23 mili Watt (73.2%)
+- Switching Power = 8.44 mili Watt (26.8%)
+- Leakage Power = 146 nano Watt (0.00%)
+- Total Power = 31.5 mili Watt (100%)
+
+
+
+
 
 
 
