@@ -372,18 +372,22 @@ This step creates a clock network over the layout to provide clock to different 
 
 Results - Post layout
 # Post Layout synthesis gate count
-
+![Image](https://github.com/YathinKumar11/IIITB_RISCV32IM/blob/main/Images/mid_gatecount.png)
 # Area using box command
 
 # Performance 
 
 # Flop ratio
-
+![Image](https://github.com/YathinKumar11/IIITB_RISCV32IM/blob/main/Images/mid_flopcount.png)
+- No.of flip flops = 2958
+- Total number of cells = 25594
+- flop ratio = 2985/25594 = 0.116
 # Power (internal, switching, leakage and total)
-- Internal Power = 23 mili Watt (73.2%)
-- Switching Power = 8.44 mili Watt (26.8%)
-- Leakage Power = 146 nano Watt (0.00%)
-- Total Power = 31.5 mili Watt (100%)
+![Image](https://github.com/YathinKumar11/IIITB_RISCV32IM/blob/main/Images/mid_power.png)
+- Internal Power = 22.22 milli Watt (74.1%)
+- Switching Power = 7.74 milli Watt (25.9%)
+- Leakage Power = 131 nano Watt (0.00%)
+- Total Power = 29.9 mili Watt (100%)
 
 
 
