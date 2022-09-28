@@ -374,9 +374,9 @@ Results - Post layout
 # Post Layout synthesis gate count
 ![Image](https://github.com/YathinKumar11/IIITB_RISCV32IM/blob/main/Images/mid_gatecount.png)
 # Area using box command
-
+![Image](https://github.com/YathinKumar11/IIITB_RISCV32IM/blob/main/Images/mid_magic.png)
 # Performance 
-
+![Image](https://github.com/YathinKumar11/IIITB_RISCV32IM/blob/main/Images/Screenshot%202022-09-28%20at%203.13.24%20PM.png)
 # Flop ratio
 ![Image](https://github.com/YathinKumar11/IIITB_RISCV32IM/blob/main/Images/mid_flopcount.png)
 - No.of flip flops = 2958
